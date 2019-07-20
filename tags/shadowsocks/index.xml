@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Neo&#39;s Blog</title>
-    <link>https://Neophyliam.github.io/</link>
-    <description>Recent content on Neo&#39;s Blog</description>
+    <title>shadowsocks on Neo&#39;s Blog</title>
+    <link>https://Neophyliam.github.io/tags/shadowsocks/</link>
+    <description>Recent content in shadowsocks on Neo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jul 2019 23:17:05 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Neophyliam.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Neophyliam.github.io/tags/shadowsocks/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About Me</title>
-      <link>https://Neophyliam.github.io/about/</link>
-      <pubDate>Sun, 07 Jul 2019 23:17:05 +0800</pubDate>
-      
-      <guid>https://Neophyliam.github.io/about/</guid>
-      <description>I am a post-graduate student majoring in Nuclear Engineering in XJTU. I love coding and I am enthusiastic about the amazing world built by software. But I am still a beginner at coding, and I still have a lot to learn. So this blog is meant to record my learning process and share the interesting knowledge and opinion I learned in this way.</description>
-    </item>
     
     <item>
       <title>How to use shadowsocks on Linux</title>
