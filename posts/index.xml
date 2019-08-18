@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Neo&#39;s Blog</title>
-    <link>https://Neophyliam.github.io/posts/</link>
+    <link>https://neothenil.github.io/posts/</link>
     <description>Recent content in Posts on Neo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://Neophyliam.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://neothenil.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to use shadowsocks on Linux</title>
-      <link>https://Neophyliam.github.io/posts/ss-settings/</link>
+      <link>https://neothenil.github.io/posts/ss-settings/</link>
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://Neophyliam.github.io/posts/ss-settings/</guid>
+      <guid>https://neothenil.github.io/posts/ss-settings/</guid>
       <description>1. Install shadowsocks client sudo pip install shadowsocks
 2. Fix bug in shadowsocks  You can skip this step first, and come back if sslocal does not work. Typically, this happens on the machines with ARM architecture.
  Replace string &amp;ldquo;libcrypto.EVP_CIPHER_CTX_cleanup&amp;rdquo; to &amp;ldquo;libcrypto.EVP_CIPHER_CTX_reset&amp;rdquo; in openssl.py, which is located somewhere like /usr/local/lib/python2.</description>

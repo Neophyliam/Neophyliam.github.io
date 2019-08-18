@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://Neophyliam.github.io/about/</loc>
+    <loc>https://neothenil.github.io/about/</loc>
     <lastmod>2019-07-07T23:17:05+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/</loc>
+    <loc>https://neothenil.github.io/</loc>
     <lastmod>2019-07-07T23:17:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/categories/</loc>
+    <loc>https://neothenil.github.io/categories/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/posts/ss-settings/</loc>
+    <loc>https://neothenil.github.io/posts/ss-settings/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/posts/</loc>
-    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://Neophyliam.github.io/tags/</loc>
+    <loc>https://neothenil.github.io/posts/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/categories/howto/</loc>
+    <loc>https://neothenil.github.io/tags/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://Neophyliam.github.io/tags/shadowsocks/</loc>
+    <loc>https://neothenil.github.io/categories/howto/</loc>
+    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/tags/shadowsocks/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
