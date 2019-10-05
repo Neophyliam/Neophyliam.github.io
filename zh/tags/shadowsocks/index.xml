@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shadowsocks on Neo的博客</title>
+    <link>https://neothenil.github.io/zh/tags/shadowsocks/</link>
+    <description>Recent content in shadowsocks on Neo的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://neothenil.github.io/zh/tags/shadowsocks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在Linux系统下使用shadowsocks</title>
+      <link>https://neothenil.github.io/zh/posts/ss-settings/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://neothenil.github.io/zh/posts/ss-settings/</guid>
+      <description>1. 安装shadowsocks客户端 sudo pip install shadowsocks
+2. 修改shadowsocks客户端代码  这一步可以先跳过，如果之后运行sslocal命令报错再返回来修改。通常在ARM架构的CPU下会出现 这个问题。
+ 把openssl.py文件中出现&amp;rdquo;libcrypto.EVP_CIPHER_CTX_cleanup&amp;rdquo;的地方全部替换为 &amp;ldquo;libcrypto.EVP_CIPHER_CTX_reset&amp;rdquo;，这个文件所在的位置类似于 /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py。
+3. 为shadowsocks编写配置文件 我把这个文件保存在~/.config目录下，并命名为shadowsocks.json。其中的内容有如下格式：
+{ &amp;quot;server&amp;quot;: &amp;quot;www.example.com&amp;quot;, &amp;quot;server_port&amp;quot;: 88888, &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, &amp;quot;local_port&amp;quot;: 1080, &amp;quot;password&amp;quot;: &amp;quot;secret&amp;quot;, &amp;quot;timeout&amp;quot;: 600, &amp;quot;method&amp;quot;: &amp;quot;aes-256-cfb&amp;quot;, &amp;quot;fast_open&amp;quot;: false, &amp;quot;workers&amp;quot;: 1 }  4. 安装polipo以使使用http(s)协议的应用使用shadowsocks sudo apt-get install polipo
+5. 更改polipo的配置文件 将/etc/polipo/config文件更改为如下内容：
+logSyslog = false logFile = /var/log/polipo/polipo.</description>
+    </item>
+    
+  </channel>
+</rss>

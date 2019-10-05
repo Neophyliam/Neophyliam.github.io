@@ -17,19 +17,19 @@
     
     
 
-<title>How to use shadowsocks on Linux • Neo&#39;s Blog</title>
+<title>如何在Linux系统下使用shadowsocks • Neo的博客</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to use shadowsocks on Linux"/>
-<meta name="twitter:description" content="A guide on how to use shadowsocks on Linux."/>
+<meta name="twitter:title" content="如何在Linux系统下使用shadowsocks"/>
+<meta name="twitter:description" content="一份在Linux系统下使用shadowsocks的说明"/>
 
-<meta property="og:title" content="How to use shadowsocks on Linux" />
-<meta property="og:description" content="A guide on how to use shadowsocks on Linux." />
+<meta property="og:title" content="如何在Linux系统下使用shadowsocks" />
+<meta property="og:description" content="一份在Linux系统下使用shadowsocks的说明" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://neothenil.github.io/posts/ss-settings/" />
-<meta property="article:published_time" content="2018-05-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-05-19T00:00:00+00:00" /><meta property="og:site_name" content="Neo&#39;s Blog" />
+<meta property="og:url" content="https://neothenil.github.io/zh/posts/ss-settings/" />
+<meta property="article:published_time" content="2019-10-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-05T00:00:00+00:00" /><meta property="og:site_name" content="Neo的博客" />
 
 
     
@@ -74,7 +74,7 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">Neo&#39;s Blog</a>
+        <a href="/zh">Neo的博客</a>
       </span>
       
       
@@ -85,7 +85,7 @@
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">Neo&#39;s Blog</label>
+      <label for="menuToggle">Neo的博客</label>
       <div class="menu-content">
         <div>
 	<ul class="sidebar-nav">
@@ -93,16 +93,16 @@
 		 
 			 
 				<li>
-					<a href="/posts/">
-						<span>Posts</span>
+					<a href="/zh/posts/">
+						<span>文章</span>
 					</a>
 				</li>
 			 
 		 
 			 
 				<li>
-					<a href="/about/">
-						<span>About</span>
+					<a href="/zh/about/">
+						<span>关于</span>
 					</a>
 				</li>
 			 
@@ -166,13 +166,13 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
     
 <article>
   <header>
-    <h1>How to use shadowsocks on Linux</h1>
+    <h1>如何在Linux系统下使用shadowsocks</h1>
     
     
 <div class="post__meta">
     
     
-      <i class="fas fa-calendar-alt"></i> May 19, 2018
+      <i class="fas fa-calendar-alt"></i> Oct 05, 2019
     
     
     
@@ -181,7 +181,7 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
           in
           
           
-              <a class="badge badge-category" href="/categories/howto">HOWTO</a>
+              <a class="badge badge-category" href="/zh/categories/howto">HOWTO</a>
               
           
       
@@ -193,13 +193,13 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
           <br/>
            <i class="fas fa-tags"></i>
           
-          <a class="badge badge-tag" href="/tags/shadowsocks">shadowsocks</a>
+          <a class="badge badge-tag" href="/zh/tags/shadowsocks">shadowsocks</a>
           
       
     
     
     <br/>
-    <i class="fas fa-clock"></i> 2 min read
+    <i class="fas fa-clock"></i> 1 min read
 </div>
 
 
@@ -219,13 +219,13 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
 <ul>
 <li>
 <ul>
-<li><a href="#1-install-shadowsocks-client">1. Install shadowsocks client</a></li>
-<li><a href="#2-fix-bug-in-shadowsocks">2. Fix bug in shadowsocks</a></li>
-<li><a href="#3-write-a-config-file-for-shadowsocks">3. Write a config file for shadowsocks</a></li>
-<li><a href="#4-install-polipo-for-using-shadowsocks-in-http-s-protocal">4. Install Polipo for using shadowsocks in http(s) protocal</a></li>
-<li><a href="#5-modify-polipo-s-config-file">5. Modify polipo&rsquo;s config file</a></li>
-<li><a href="#6-export-environment-variable">6. Export environment variable</a></li>
-<li><a href="#7-usage">7. Usage</a></li>
+<li><a href="#1-安装shadowsocks客户端">1. 安装shadowsocks客户端</a></li>
+<li><a href="#2-修改shadowsocks客户端代码">2. 修改shadowsocks客户端代码</a></li>
+<li><a href="#3-为shadowsocks编写配置文件">3. 为shadowsocks编写配置文件</a></li>
+<li><a href="#4-安装polipo以使使用http-s-协议的应用使用shadowsocks">4. 安装polipo以使使用http(s)协议的应用使用shadowsocks</a></li>
+<li><a href="#5-更改polipo的配置文件">5. 更改polipo的配置文件</a></li>
+<li><a href="#6-添加环境变量">6. 添加环境变量</a></li>
+<li><a href="#7-使用">7. 使用</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -238,26 +238,24 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
   <div class="post">
     
 
-<h4 id="1-install-shadowsocks-client">1. Install shadowsocks client</h4>
+<h4 id="1-安装shadowsocks客户端">1. 安装shadowsocks客户端</h4>
 
 <p><code>sudo pip install shadowsocks</code></p>
 
-<h4 id="2-fix-bug-in-shadowsocks">2. Fix bug in shadowsocks</h4>
+<h4 id="2-修改shadowsocks客户端代码">2. 修改shadowsocks客户端代码</h4>
 
 <blockquote>
-<p>You can skip this step first, and come back if <code>sslocal</code> does not
-work. Typically, this happens on the machines with ARM architecture.</p>
+<p>这一步可以先跳过，如果之后运行<code>sslocal</code>命令报错再返回来修改。通常在ARM架构的CPU下会出现
+这个问题。</p>
 </blockquote>
 
-<p>Replace string &ldquo;libcrypto.EVP_CIPHER_CTX_cleanup&rdquo; to
-&ldquo;libcrypto.EVP_CIPHER_CTX_reset&rdquo; in openssl.py, which is located
-somewhere like
-/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py.</p>
+<p>把openssl.py文件中出现&rdquo;libcrypto.EVP_CIPHER_CTX_cleanup&rdquo;的地方全部替换为
+&ldquo;libcrypto.EVP_CIPHER_CTX_reset&rdquo;，这个文件所在的位置类似于
+/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py。</p>
 
-<h4 id="3-write-a-config-file-for-shadowsocks">3. Write a config file for shadowsocks</h4>
+<h4 id="3-为shadowsocks编写配置文件">3. 为shadowsocks编写配置文件</h4>
 
-<p>I wrote this file in ~/.config, named <code>shadowsocks.json</code>. It
-contains information like this:</p>
+<p>我把这个文件保存在~/.config目录下，并命名为<code>shadowsocks.json</code>。其中的内容有如下格式：</p>
 
 <pre><code class="language-json">{
     &quot;server&quot;: &quot;www.example.com&quot;,
@@ -272,13 +270,13 @@ contains information like this:</p>
 }
 </code></pre>
 
-<h4 id="4-install-polipo-for-using-shadowsocks-in-http-s-protocal">4. Install Polipo for using shadowsocks in http(s) protocal</h4>
+<h4 id="4-安装polipo以使使用http-s-协议的应用使用shadowsocks">4. 安装polipo以使使用http(s)协议的应用使用shadowsocks</h4>
 
 <p><code>sudo apt-get install polipo</code></p>
 
-<h4 id="5-modify-polipo-s-config-file">5. Modify polipo&rsquo;s config file</h4>
+<h4 id="5-更改polipo的配置文件">5. 更改polipo的配置文件</h4>
 
-<p>Modify file /etc/polipo/config to this:</p>
+<p>将/etc/polipo/config文件更改为如下内容：</p>
 
 <pre><code>logSyslog = false
 logFile = /var/log/polipo/polipo.log
@@ -297,35 +295,33 @@ proxyAddress = &quot;0.0.0.0&quot;
 proxyPort = 8123
 </code></pre>
 
-<p>Restart polipo with <code>/etc/init.d/polipo restart</code> after modification.</p>
+<p>在更改之后运行<code>/etc/init.d/polipo restart</code>来重启polipo。</p>
 
-<h4 id="6-export-environment-variable">6. Export environment variable</h4>
+<h4 id="6-添加环境变量">6. 添加环境变量</h4>
 
 <p><code>export http_proxy=127.0.0.1:8123</code><br />
 <code>export https_proxy=$http_proxy</code><br />
-I wrote two alias commands in .bash_aliases for convenience:</p>
+我在.bash_aliases文件中添加了两个alias命令：</p>
 
 <pre><code class="language-sh">alias proxyon=&quot;export http_proxy=127.0.0.1:8123 &amp;&amp; export https_proxy=127.0.0.1:8123&quot;
 alias proxyoff=&quot;export http_proxy='' &amp;&amp; export https_proxy=''&quot;
 </code></pre>
 
-<h4 id="7-usage">7. Usage</h4>
+<h4 id="7-使用">7. 使用</h4>
 
 <ul>
-<li>Invoke shadowsocks: <code>sslocal -c ~/.config/shadowsocks.json</code>;</li>
-<li>Turn on http_proxy and https_proxy with <code>proxyon</code>;</li>
-<li>Enjoy;</li>
-<li>Turn off http_proxy and https_proxy with <code>proxyoff</code>;</li>
-<li>Turn off shadowsocks with CTRL-C.</li>
+<li>启动shadowsocks客户端：<code>sslocal -c ~/.config/shadowsocks.json</code>；</li>
+<li>设置环境变量：<code>proxyon</code>；</li>
+<li>Enjoy；</li>
+<li>恢复之前的环境变量：<code>proxyoff</code>；</li>
+<li>使用<code>CTRL-C</code>关闭shadowsocks客户端。</li>
 </ul>
 
-<p>Note: This does not apply to <code>git clone</code>. If you want to use
-shadowsocks in this command, invoke it this way: <code>git clone -c
-https.proxy=127.0.0.1:8123</code>.</p>
-
-<p>This does not mean you can browse the forbidden websites directly,
-either. Opening chromium in a terminal with proxyon may solve this
-problem.</p>
+<p>注意：有些应用并不识别http_proxy和https_proxy这两个环境变量，在这种情况下需要使用应用本身
+提供的设置代理的方式。对于git来说，或者使用<code>git clone -c https.proxy=127.0.0.1:8123</code>
+来克隆代码，或者直接在全局设置git的代理：
+<code>git config --global https.proxy=127.0.0.1:8123</code>。对于浏览器来说，需要在使用的浏览器
+本身的设置中设置代理。</p>
 
   </div>
   
