@@ -5,10 +5,19 @@
     <link>https://neothenil.github.io/</link>
     <description>Recent content on Neo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 07 Jul 2019 23:17:05 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 17:38:37 +0800</lastBuildDate>
     
 	<atom:link href="https://neothenil.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cheat with mock object</title>
+      <link>https://neothenil.github.io/posts/cheat_with_mock/</link>
+      <pubDate>Sat, 19 Oct 2019 17:38:37 +0800</pubDate>
+      
+      <guid>https://neothenil.github.io/posts/cheat_with_mock/</guid>
+      <description>This post is intended to be a summary of two excellent posts about mock from Uncle Bob. One post titled as &amp;ldquo;The Little Mocker&amp;rdquo; shows different types of mock. The other one shows in which situation we should use mock. Although in The Little Mocker, Uncle Bob has pointed out that &amp;ldquo;mock&amp;rdquo; is just colloquial slang for Test Double, we still use it here for its common use.</description>
+    </item>
     
     <item>
       <title>About Me</title>

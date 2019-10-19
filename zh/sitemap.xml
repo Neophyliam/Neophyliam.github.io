@@ -5,6 +5,7 @@
   <url>
     <loc>https://neothenil.github.io/zh/categories/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,23 +19,9 @@
   </url>
   
   <url>
-    <loc>https://neothenil.github.io/zh/categories/howto/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://neothenil.github.io/categories/howto/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://neothenil.github.io/zh/categories/howto/"
-                />
-  </url>
-  
-  <url>
     <loc>https://neothenil.github.io/zh/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,6 +37,7 @@
   <url>
     <loc>https://neothenil.github.io/zh/posts/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -63,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://neothenil.github.io/zh/tags/shadowsocks/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://neothenil.github.io/tags/shadowsocks/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://neothenil.github.io/zh/tags/shadowsocks/"
-                />
-  </url>
-  
-  <url>
     <loc>https://neothenil.github.io/zh/tags/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -89,6 +63,38 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://neothenil.github.io/zh/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/categories/howto/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/howto/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/howto/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/tags/shadowsocks/</loc>
+    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/tags/shadowsocks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/tags/shadowsocks/"
                 />
   </url>
   

@@ -3,23 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://neothenil.github.io/about/</loc>
-    <lastmod>2019-07-07T23:17:05+08:00</lastmod>
+    <loc>https://neothenil.github.io/categories/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://neothenil.github.io/zh/about/"
+                href="https://neothenil.github.io/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://neothenil.github.io/about/"
+                href="https://neothenil.github.io/categories/"
                 />
   </url>
   
   <url>
+    <loc>https://neothenil.github.io/posts/cheat_with_mock/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neothenil.github.io/</loc>
-    <lastmod>2019-07-07T23:17:05+08:00</lastmod>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -33,17 +40,45 @@
   </url>
   
   <url>
-    <loc>https://neothenil.github.io/categories/</loc>
-    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <loc>https://neothenil.github.io/posts/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://neothenil.github.io/zh/categories/"
+                href="https://neothenil.github.io/zh/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://neothenil.github.io/categories/"
+                href="https://neothenil.github.io/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/categories/dev/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/categories/testing/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/about/</loc>
+    <lastmod>2019-07-07T23:17:05+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/about/"
                 />
   </url>
   
@@ -63,8 +98,25 @@
   </url>
   
   <url>
+    <loc>https://neothenil.github.io/tags/</loc>
+    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/tags/"
+                />
+  </url>
+  
+  <url>
     <loc>https://neothenil.github.io/categories/howto/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -78,23 +130,9 @@
   </url>
   
   <url>
-    <loc>https://neothenil.github.io/posts/</loc>
-    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://neothenil.github.io/zh/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://neothenil.github.io/posts/"
-                />
-  </url>
-  
-  <url>
     <loc>https://neothenil.github.io/tags/shadowsocks/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -104,21 +142,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://neothenil.github.io/tags/shadowsocks/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://neothenil.github.io/tags/</loc>
-    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://neothenil.github.io/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://neothenil.github.io/tags/"
                 />
   </url>
   

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev on Neo&#39;s Blog</title>
+    <link>https://neothenil.github.io/categories/dev/</link>
+    <description>Recent content in dev on Neo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 19 Oct 2019 17:38:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://neothenil.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cheat with mock object</title>
+      <link>https://neothenil.github.io/posts/cheat_with_mock/</link>
+      <pubDate>Sat, 19 Oct 2019 17:38:37 +0800</pubDate>
+      
+      <guid>https://neothenil.github.io/posts/cheat_with_mock/</guid>
+      <description>This post is intended to be a summary of two excellent posts about mock from Uncle Bob. One post titled as &amp;ldquo;The Little Mocker&amp;rdquo; shows different types of mock. The other one shows in which situation we should use mock. Although in The Little Mocker, Uncle Bob has pointed out that &amp;ldquo;mock&amp;rdquo; is just colloquial slang for Test Double, we still use it here for its common use.</description>
+    </item>
+    
+  </channel>
+</rss>
