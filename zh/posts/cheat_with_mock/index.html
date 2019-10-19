@@ -17,19 +17,19 @@
     
     
 
-<title>Cheat with mock object • Neo&#39;s Blog</title>
+<title>使用Mock对象 • Neo的博客</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cheat with mock object"/>
-<meta name="twitter:description" content="This post is intended to be a summary of two excellent posts about mock from Uncle Bob. One post titled as &ldquo;The Little Mocker&rdquo; shows different types of mock. The other one shows in which situation we should use mock. Although in The Little Mocker, Uncle Bob has pointed out that &ldquo;mock&rdquo; is just colloquial slang for Test Double, we still use it here for its common use."/>
+<meta name="twitter:title" content="使用Mock对象"/>
+<meta name="twitter:description" content="这篇文章是对Uncle Bob的两篇关于mock的文章的总结。"/>
 
-<meta property="og:title" content="Cheat with mock object" />
-<meta property="og:description" content="This post is intended to be a summary of two excellent posts about mock from Uncle Bob. One post titled as &ldquo;The Little Mocker&rdquo; shows different types of mock. The other one shows in which situation we should use mock. Although in The Little Mocker, Uncle Bob has pointed out that &ldquo;mock&rdquo; is just colloquial slang for Test Double, we still use it here for its common use." />
+<meta property="og:title" content="使用Mock对象" />
+<meta property="og:description" content="这篇文章是对Uncle Bob的两篇关于mock的文章的总结。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://neothenil.github.io/posts/cheat_with_mock/" />
+<meta property="og:url" content="https://neothenil.github.io/zh/posts/cheat_with_mock/" />
 <meta property="article:published_time" content="2019-10-19T17:38:37+08:00" />
-<meta property="article:modified_time" content="2019-10-19T17:38:37+08:00" /><meta property="og:site_name" content="Neo&#39;s Blog" />
+<meta property="article:modified_time" content="2019-10-19T17:38:37+08:00" /><meta property="og:site_name" content="Neo的博客" />
 
 
     
@@ -74,7 +74,7 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">Neo&#39;s Blog</a>
+        <a href="/zh">Neo的博客</a>
       </span>
       
       
@@ -85,7 +85,7 @@
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">Neo&#39;s Blog</label>
+      <label for="menuToggle">Neo的博客</label>
       <div class="menu-content">
         <div>
 	<ul class="sidebar-nav">
@@ -93,16 +93,16 @@
 		 
 			 
 				<li>
-					<a href="/posts/">
-						<span>Posts</span>
+					<a href="/zh/posts/">
+						<span>文章</span>
 					</a>
 				</li>
 			 
 		 
 			 
 				<li>
-					<a href="/about/">
-						<span>About</span>
+					<a href="/zh/about/">
+						<span>关于</span>
 					</a>
 				</li>
 			 
@@ -166,7 +166,7 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
     
 <article>
   <header>
-    <h1>Cheat with mock object</h1>
+    <h1>使用Mock对象</h1>
     
     
 <div class="post__meta">
@@ -181,10 +181,10 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
           in
           
           
-              <a class="badge badge-category" href="/categories/dev">DEV</a>
+              <a class="badge badge-category" href="/zh/categories/dev">DEV</a>
               •
           
-              <a class="badge badge-category" href="/categories/testing">TESTING</a>
+              <a class="badge badge-category" href="/zh/categories/testing">TESTING</a>
               
           
       
@@ -192,7 +192,7 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
     
     
     <br/>
-    <i class="fas fa-clock"></i> 4 min read
+    <i class="fas fa-clock"></i> 2 min read
 </div>
 
 
@@ -212,8 +212,8 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
 <ul>
 <li>
 <ul>
-<li><a href="#what-is-mock-object">What is mock object?</a></li>
-<li><a href="#the-different-types-of-mock-object">The different types of mock object</a>
+<li><a href="#什么是mock对象">什么是Mock对象？</a></li>
+<li><a href="#mock对象的不同类型">Mock对象的不同类型</a>
 <ul>
 <li><a href="#1-dummy">1. Dummy</a></li>
 <li><a href="#2-stub">2. Stub</a></li>
@@ -221,8 +221,8 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
 <li><a href="#4-mock">4. Mock</a></li>
 <li><a href="#5-fakes">5. Fakes</a></li>
 </ul></li>
-<li><a href="#when-to-use-it">When to use it?</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#何时使用mock对象">何时使用Mock对象？</a></li>
+<li><a href="#参考资料">参考资料</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -235,33 +235,28 @@ Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.co
   <div class="post">
     
 
-<p>This post is intended to be a summary of two excellent posts about mock
-from Uncle Bob.  <a href="https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html">One
-post</a>
-titled as &ldquo;The Little Mocker&rdquo; shows different types of mock. <a href="https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html">The other
-one</a>
-shows in which situation we should use mock. Although in The Little Mocker,
-Uncle Bob has pointed out that &ldquo;mock&rdquo; is just colloquial slang for Test
-Double, we still use it here for its common use.</p>
+<p>这篇文章是对Uncle Bob的两篇关于mock的文章的总结。
+<a href="https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html">一篇</a>被命名为&rdquo;The
+Little
+Mocker&rdquo;，展示了各种不同的Mock对象。<a href="https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html">另一篇文章</a>
+告诉我们应该在什么情况下使用
+Mock对象。尽管在The Little Mocker中，Uncle
+Bob指出了我们通常所说的&rdquo;mock&rdquo;指的其实是Test
+Double，在这篇文章中我们还是使用通常所说的&rdquo;mock&rdquo;的含义。</p>
 
-<h4 id="what-is-mock-object">What is mock object?</h4>
+<h4 id="什么是mock对象">什么是Mock对象？</h4>
 
-<p>Mock objects are simulated objects that mimic the behavior of real objects
-in controlled ways. They are often used in unit tests to test other objects
-which depend on the mocked objects. We can use mock objects to test a
-particular logic of some code, regardless of the other side effects like
-reading files or connecting to a server. In my opinion, the action of mock
-objects is just like cheating the tested code, so as the title of this post
-indicates. But the cheating is for a good intention such as eliminating the
-long latency, or the non-deterministic elements from some operation in
-unit tests.</p>
+<p>Mock对象是一些用来模仿真实对象行为的模拟对象，它们通常在单元测试中用来测试一些
+依赖于其他对象的对象。使用Mock对象，我们可以测试代码中的某一个特定逻辑，而不会
+产生其他一些副作用，例如读取文件或连接服务器。在我看来，Mock对象的行为就像是在
+欺骗被测试的代码一样，但是这里的欺骗是出于好意的，比如想要消除单元测试中一些
+操作的长延迟或不确定的因素。</p>
 
-<h4 id="the-different-types-of-mock-object">The different types of mock object</h4>
+<h4 id="mock对象的不同类型">Mock对象的不同类型</h4>
 
 <h5 id="1-dummy">1. Dummy</h5>
 
-<p>Let&rsquo;s use the snippets in the original post for convenience. Suppose
-there is a <code>System</code> class.</p>
+<p>为了方便起见，这里直接使用了原文中的代码片段。假如有个<code>System</code>类：</p>
 
 <pre><code class="language-java">public class System {
   public System(Authorizer authorizer) {
@@ -274,19 +269,17 @@ there is a <code>System</code> class.</p>
 }
 </code></pre>
 
-<p>And <code>Authorizer</code> is defined as an interface.</p>
+<p>其中<code>Authorizer</code>被定义为一个接口：</p>
 
 <pre><code class="language-java">interface Authorizer {
   public Boolean authorize(String username, String password);
 }
 </code></pre>
 
-<p>In some situation, the system is intended to have different kinds of
-<code>Authorizer</code>, and that&rsquo;s the reason why <code>Authorizer</code> is defined as an
-interface. But there&rsquo;s also situation in which an interface is defined
-just for mocking.</p>
+<p>在有些情况下，系统本身就会有几种不同的<code>Authorizer</code>，这自然会让<code>Authorizer</code>被
+定义为一个接口。但是也有一些情况下，定义接口就是专门为了使用Mock对象进行测试。</p>
 
-<p>A dummy can be defined as follow:</p>
+<p>一个Dummy对象可以按照如下方式进行定义:</p>
 
 <pre><code class="language-java">public class DummyAuthorizer implements Authorizer {
   public Boolean authorize(String username, String password) {
@@ -295,7 +288,7 @@ just for mocking.</p>
 }
 </code></pre>
 
-<p>The test can be written as:</p>
+<p>使用该Dummy对象进行测试的代码如下：</p>
 
 <pre><code class="language-java">@Test
 public void newlyCreatedSystem_hasNoLoggedInUsers() {
@@ -304,15 +297,14 @@ public void newlyCreatedSystem_hasNoLoggedInUsers() {
 }
 </code></pre>
 
-<p>To construct an instance of <code>System</code>, an <code>Authorizer</code> must be passed to
-the constructor. But in this test, we even don&rsquo;t use the authorizer
-once. So we create a <code>DummyAuthorizer</code> for this. In short, <code>Dummy</code> is
-for tests never using the mocked object.</p>
+<p>为了产生出一个<code>System</code>的实例，必须要在其构造函数中传入一个<code>Authorizer</code>。但是，
+在这个测试中我们根本没有用到authorizer。这时我们创建了<code>DummyAuthorizer</code>来
+应对这种情况。简而言之，Dummy对象是用来在完全没有用到某一个对象的测试中使用的。</p>
 
 <h5 id="2-stub">2. Stub</h5>
 
-<p>Suppose we want to test a part of system that requires the user to be
-logged in. We write a stub like this:</p>
+<p>假如我们想要测试系统中必须要求用户登录的某一个部分，我们可以使用如下的Stub
+对象：</p>
 
 <pre><code class="language-java">public class AcceptingAuthorizerStub implements Authorizer {
   public Boolean authorize(String username, String password) {
@@ -321,13 +313,12 @@ logged in. We write a stub like this:</p>
 }
 </code></pre>
 
-<p><code>Stub</code> is used to guarantee the behavior of some code, which has been
-tested in other place.</p>
+<p>Stub对象是用来保证某一段代码的行为的，而被模拟的这段代码在其他地方已经进行
+测试过了。</p>
 
 <h5 id="3-spy">3. Spy</h5>
 
-<p>When we want to be sure that <code>authorize</code> method was called by this system,
-we could use a spy.</p>
+<p>当我们想要确认<code>authorize</code>方法确实被系统调用了的时候，可以使用Spy对象：</p>
 
 <pre><code class="language-java">public class AcceptingAuthorizerSpy implements Authorizer {
   public Boolean authorizeWasCalled = false;
@@ -338,17 +329,15 @@ we could use a spy.</p>
 }
 </code></pre>
 
-<p>We could check the <code>authorizeWasCalled</code> variable at the end of test to make
-sure the system actually called <code>authorize</code>. And <code>Spy</code> can be used to
-record many different kind of things like the number of invocations, a list
-of arguments passed in each time.</p>
+<p>我们可以在测试代码的末尾检查<code>authorizeWasCalled</code>变量来确保系统确实调用了
+<code>authorize</code>方法。除此之外，Spy对象还能用来记录各种不同的信息，例如调用的次数，
+或把每次调用时传入的参数保存在一个列表中。</p>
 
-<p>But <code>Spy</code> incorporates coupling between tests and implementations. So use
-it carefully.</p>
+<p>但是Spy对象在测试代码和实现代码中引入了耦合，所以使用的时候需谨慎。</p>
 
 <h5 id="4-mock">4. Mock</h5>
 
-<p>&ldquo;Mock&rdquo; in this place is its original meaning. Here is an example:</p>
+<p>这里的&rdquo;Mock&rdquo;是它原本的精确定义，下面是一个示例：</p>
 
 <pre><code class="language-java">public class AcceptingAuthorizerVerificationMock implements Authorizer {
   public Boolean authorizeWasCalled = false;
@@ -364,14 +353,13 @@ it carefully.</p>
 }
 </code></pre>
 
-<p>The assertion is moved from test to the definition of mock object. The
-reason for that is it makes it easier to write mocking tool. Because it is
-not the recommended way to write mock objects, and it also makes confusion,
-let&rsquo;s just skip it.</p>
+<p>在这里进行断言的代码从测试代码中移到了对Mock对象的定义中，这么做的原因是这样
+可以方便编写Mock工具。因为它容易引起歧义，而且也不是Uncle
+Bob推荐的写Mock对象的方法，所以我们可以忽略它。</p>
 
 <h5 id="5-fakes">5. Fakes</h5>
 
-<p>This is a fake:</p>
+<p>这是一个Fake对象：</p>
 
 <pre><code class="language-java">public class AcceptingAuthorizerFake implements Authorizer {
   public Boolean authorize(String username, String password) {
@@ -380,23 +368,22 @@ let&rsquo;s just skip it.</p>
 }
 </code></pre>
 
-<p>The major difference between <code>Fakes</code> and the other types of mock objects is
-they have real business behavior. So it&rsquo;s like a simulator of the real
-object.  <code>Fakes</code> can be extremely complicated so that they need unit tests
-of their own. At the extremes the fake becomes the real system. For that
-reason, <code>Fakes</code> are rarely used.</p>
+<p>Fake对象和其他类型的Mock对象的主要不同之处在于Fake对象包含真正的具体行为，所以
+它更像是对真实对象的模拟。Fake对象可以非常复杂，能够复杂到它们本身也需要自己的
+单元测试的程度。在极端情况下，Fake对象最终会变成真实的系统。也因为如此，Fake
+对象很少被用到。</p>
 
-<h4 id="when-to-use-it">When to use it?</h4>
+<h4 id="何时使用mock对象">何时使用Mock对象？</h4>
 
 <ul>
-<li>Mock sparingly. It&rsquo;s better to have no mock at all in unit test.</li>
-<li>Reserve mocking for architecturally significant boundaries. For example,
-mock out the database, web server, and external services.</li>
-<li>Write your own mocks. This forces you to design your mocking structure.
-And without using reflection, the tests will be much faster.</li>
+<li>少用Mock对象。最好在单元测试中完全没有Mock对象。</li>
+<li>在系统架构的重大抽象边界上使用Mock对象。例如，可以编写数据库、服务器和其他外部
+服务的Mock对象。</li>
+<li>自己编写Mock对象。这会迫使你去设计Mock对象的结构，并且不使用反射的测试
+代码运行起来要快很多。</li>
 </ul>
 
-<h4 id="references">References</h4>
+<h4 id="参考资料">参考资料</h4>
 
 <ul>
 <li><a href="https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html">The Little Mocker</a></li>
@@ -408,9 +395,9 @@ And without using reflection, the tests will be much faster.</li>
 
 <div class="navigation navigation-single">
     
-    <a href="/posts/ss-settings/" class="navigation-prev">
+    <a href="/zh/posts/ss-settings/" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">How to use shadowsocks on Linux</span>
+      <span class="navigation-tittle">如何在Linux系统下使用shadowsocks</span>
     </a>
     
     

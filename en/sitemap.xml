@@ -21,6 +21,16 @@
   <url>
     <loc>https://neothenil.github.io/posts/cheat_with_mock/</loc>
     <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/posts/cheat_with_mock/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/posts/cheat_with_mock/"
+                />
   </url>
   
   <url>
@@ -59,12 +69,32 @@
     <loc>https://neothenil.github.io/categories/dev/</loc>
     <lastmod>2019-10-19T17:38:37+08:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/dev/"
+                />
   </url>
   
   <url>
     <loc>https://neothenil.github.io/categories/testing/</loc>
     <lastmod>2019-10-19T17:38:37+08:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/testing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/testing/"
+                />
   </url>
   
   <url>

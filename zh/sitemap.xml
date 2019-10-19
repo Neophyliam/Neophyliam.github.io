@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/categories/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -36,7 +36,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/posts/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -47,6 +47,53 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://neothenil.github.io/zh/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/categories/dev/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/dev/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/categories/testing/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/testing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/posts/cheat_with_mock/</loc>
+    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/posts/cheat_with_mock/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/posts/cheat_with_mock/"
                 />
   </url>
   
