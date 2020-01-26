@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.56.0-DEV" />
+
+    
+    
+    
+
+<title>[译]为什么需要单元测试以及如何让其为你所用 • Neo的博客</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[译]为什么需要单元测试以及如何让其为你所用"/>
+<meta name="twitter:description" content="Learn Go with tests中Why unit tests and how to make them work for you 一文的翻译"/>
+
+<meta property="og:title" content="[译]为什么需要单元测试以及如何让其为你所用" />
+<meta property="og:description" content="Learn Go with tests中Why unit tests and how to make them work for you 一文的翻译" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://neothenil.github.io/zh/posts/why_unit_tests/" />
+<meta property="article:published_time" content="2020-01-26T23:35:00+08:00" />
+<meta property="article:modified_time" content="2020-01-26T23:35:00+08:00" /><meta property="og:site_name" content="Neo的博客" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.05b65330cfa284f693ad96aca186034bab6e882d9cbd7c5fd0dbeedb99ee805a.css" integrity="sha256-BbZTMM&#43;ihPaTrZasoYYDS6tuiC2cvXxf0Nvu25nugFo=">
+
+
+<link rel="stylesheet" href="/scss/print.2ff7ec5bd74f55e3646af8c189df6d6e3ff3e624dc1f695309df7ec00cd55527.css" integrity="sha256-L/fsW9dPVeNkavjBid9tbj/z5iTcH2lTCd9&#43;wAzVVSc=" media="print">
+
+
+
+
+<link rel="stylesheet" href="/scss/hugo-toc.8549a64d301421b4256ea9a0d5ca8b99178799f569d5d2daeb95f24cef3ce6b7.css" integrity="sha256-hUmmTTAUIbQlbqmg1cqLmReHmfVp1dLa65XyTO885rc=">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="/zh">Neo的博客</a>
+      </span>
+      
+      
+      <p class="site__description">
+         &#34;I hope the field of computer science never loses its sense of fun.&#34; --Alan Perlis
+ 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Neo的博客</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/zh/posts/">
+						<span>文章</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/zh/about/">
+						<span>关于</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	
+	
+	<a href="https://github.com/neothenil" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="mailto:727549953@qq.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        <ul style="padding: 0; text-align: center">
+    <small>| </small>
+    
+    <li style="display: inline-block"><a href="/"><small>English</small></a><small> |</small></li>
+    
+    <li style="display: inline-block"><a href="/zh/"><small>中文</small></a><small> |</small></li>
+    
+</ul>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 neothenil
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY_SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>[译]为什么需要单元测试以及如何让其为你所用</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jan 26, 2020
+    
+    
+    
+      
+      
+          in
+          
+          
+              <a class="badge badge-category" href="/zh/categories/testing">TESTING</a>
+              •
+          
+              <a class="badge badge-category" href="/zh/categories/translation">TRANSLATION</a>
+              
+          
+      
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 2 min read
+</div>
+
+
+  </header>
+  
+  
+  
+    <div class="toc-wrapper">
+      <input type="checkbox" id="tocToggle">
+      <label for="tocToggle">Table of Content</label>
+      
+          <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#译序">译序</a></li>
+<li><a href="#软件">软件</a></li>
+<li><a href="#持续变化定律">持续变化定律</a></li>
+<li><a href="#复杂度增长定律">复杂度增长定律</a></li>
+<li><a href="#重构">重构</a>
+<ul>
+<li><a href="#通分">通分</a>
+<ul>
+<li><a href="#go语言的一个例子">Go语言的一个例子</a></li>
+</ul></li>
+<li><a href="#重构代码时一定不能改变程序的行为">重构代码时一定不能改变程序的行为</a>
+<ul>
+<li><a href="#go语言的一个例子-1">Go语言的一个例子</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#如果单元测试这么好-为什么会有对它们的抵制呢">如果单元测试这么好，为什么会有对它们的抵制呢？</a>
+<ul>
+<li><a href="#为什么会这样">为什么会这样？</a></li>
+</ul></li>
+<li><a href="#着重测试行为而不是实现细节">着重测试行为而不是实现细节</a></li>
+<li><a href="#编写有效的单元测试是个设计问题">编写有效的单元测试是个设计问题</a>
+<ul>
+<li><a href="#这是单元测试吗">这是单元测试吗？</a></li>
+</ul></li>
+<li><a href="#把这些概念合在一起">把这些概念合在一起</a>
+<ul>
+<li><a href="#重构-1">重构</a></li>
+<li><a href="#单元测试">单元测试</a></li>
+<li><a href="#设计良好的-单元">（设计良好的）单元</a></li>
+</ul></li>
+<li><a href="#为什么要测试驱动开发-tdd">为什么要测试驱动开发（TDD)</a>
+<ul>
+<li><a href="#小的步骤">小的步骤</a></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+      
+    </div>
+  
+  
+  <div class="post">
+    
+
+<blockquote>
+<h3 id="译序">译序</h3>
+
+<p>自2018年以来，我从事了有三四个项目的开发。
+有的项目彻彻底底地失败了;有的项目中的程序中规中矩，能够正常运行;
+另外还有一些项目中，我尝试使用了刚刚了解到的测试驱动开发（TDD)。
+刚刚开始尝试测试驱动开发感觉很别扭，没有对应的代码，根本不知道该如何写测试。
+还有一些测试的技巧也一概不知。就算如此，按照TDD的流程走了下来之后，
+发现最终得到的代码结构比其他项目中的代码结构要清晰许多。
+仅仅是按照TDD的流程磕磕绊绊地走下来，甚至有时候并没有完全按照这一流程的要求来操作，
+就能得到结构上更清晰的代码，这看起来就足够让人称奇了。</p>
+
+<p>我初次了解TDD并不是通过<a href="https://quii.gitbook.io/learn-go-with-tests/">Learn Go with tests</a>
+这本由社区驱动的学习Go语言的书，这本书是在我已经进行了一些笨拙的对TDD的尝试之后才发现的。
+也许是时机碰的巧吧，在这个时间点上遇到了这本书，遇到了这篇文章，让我产生了很大的共鸣，
+于是就想把它翻译下来，分享给更多的人。</p>
+
+<p>虽然TDD看起来像是软件开发中的一条捷径，但是从宏观的角度上说，
+软件系统设计的核心还是在于对问题的分解和抽象能力，TDD只是帮助你进行更好的实践。
+从细节的角度来说，TDD并没有对代码规范的要求，也不会让你想出解决某个问题的更有效的算法。
+我说这些是想让一些刚刚开始对编程感兴趣的人（也是提醒我自己）
+摆正心态，没有银弹存在，沉下心来从多个方面进行提高。</p>
+
+<p>原文链接：<a href="https://quii.gitbook.io/learn-go-with-tests/meta/why">Learn Go with tests</a></p>
+</blockquote>
+
+<p><a href="https://www.youtube.com/watch?v=Kwtit8ZEK7U">这里是我讨论此话题的一个视频链接。</a></p>
+
+<p>如果你对视频形式不感兴趣，这里是视频内容的文字版本。</p>
+
+<h3 id="软件">软件</h3>
+
+<p>软件必然是会改变的，这也是为什么它被称为 <em>软</em> 件的原因。相较于硬件，软件更具有延展性。
+对公司来讲，一个卓越的开发团队应该是其莫大的财富，这样的团队能够编写出随商业模式不断演变的系统，
+从而持续地展现它的价值。</p>
+
+<p>那么我们为什么难以做好软件开发的工作呢？有多少项目曾经彻头彻尾地失败，
+或者是变得“过时”从而不得不完全重写？（这样的重写常常也以失败告终！）</p>
+
+<p>为什么一个软件系统又会失败呢？难道就不能一直改动直到它能正常工作吗？这不是我们所承诺的吗！</p>
+
+<p>许多人选择Go语言来构建系统，因为它做出了一系列我们希望能使它更加经得起历史考验的决定。</p>
+
+<ul>
+<li>相比于我之前使用Scala的经历（我在<a href="http://www.quii.co.uk/Scala_-_Just_enough_rope_to_hang_yourself">这里</a>
+描述了它是如何有足够长的绳子来吊死你自己），Go只有25个关键字，许多系统都可以使用标准库，
+再加上一些其他的小库来构建。使用Go，你能够希望自己写的代码过了6个月之后仍然能顺畅地阅读。</li>
+<li>相比于其他语言，具有一流的测试、性能分析、静态检查和构建工具。</li>
+<li>标准库非常优秀。</li>
+<li>对于紧凑的反馈循环来说具有非常快的编译速度。</li>
+<li>Go语言向后兼容的承诺。即使Go在将来可能会加入范型及其他一些特性，
+但是设计者们承诺即使是5年前写的Go代码仍将正确编译。
+我之前经常要花费好几周的时间来把一个项目从Scala 2.8升级到2.10。</li>
+</ul>
+
+<p>即使有了所有这些优秀的特性，我们仍然会写出糟糕的系统，所以我们应该回顾一下历史，
+去了解软件工程中不管使用的语言有多耀眼（或者多不耀眼）都适用的课程。</p>
+
+<p>1974年，一个叫做<a href="https://en.wikipedia.org/wiki/Manny_Lehman_(computer_scientist)">Manny Lehman</a>
+的聪明的软件工程师写下了有关软件演化的<a href="https://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution">Lehman定律</a>。</p>
+
+<blockquote>
+<p>这些定律描述了两种力量之间的平衡，一方面是驱动新的开发的力量，
+另一方面是让开发速度变得缓慢的力量。</p>
+</blockquote>
+
+<p>这些驱动力看起来如此重要，以致于如果我们有一丝希望让我们搭载的系统不进入变得过时之后便一遍又一遍地重写的死循环的话，
+就必须要去理解这些驱动力。</p>
+
+<h3 id="持续变化定律">持续变化定律</h3>
+
+<blockquote>
+<p>任何现实中的软件系统必须不断改变，否则就会在其领域中变得越来越没用。</p>
+</blockquote>
+
+<p>这看起来是显然的，但是这也是经常容易被人忽略的一点。</p>
+
+<p>许多团队被鼓励在一个确定的日期交付一个项目，然后就转移到另一个项目中。
+如果这个软件“幸运”的话，至少还会有一些交接让另外一群人去维护它，
+但是这些人并不是它的原作者。</p>
+
+<p>人们常常忙于挑选一个可以帮助他们快速交付的框架，而不关注如何在软件的演化方面让系统能够长寿。</p>
+
+<p>即使你是一个非常老练的软件工程师，你仍然会困于无法知道你所写的系统的未来需求。
+随着事务的改变，你之前写的一些聪明的代码现在会变得无关紧要。</p>
+
+<p>Lehman在70年代势如破竹，他又给了我们另一个定律来考量。</p>
+
+<h3 id="复杂度增长定律">复杂度增长定律</h3>
+
+<blockquote>
+<p>随着系统的演化，软件系统的复杂性会不断增加直到我们采取措施来减小它。</p>
+</blockquote>
+
+<p>这句话的意思是我们不能把软件开发团队当作盲目的特性开发工厂，在一个软件上堆积越来越多的特性，
+还希望这个软件能够长久地生存下去。</p>
+
+<p>在我们对问题领域的认知发生了变化之后，我们必须持续管理系统的复杂性。</p>
+
+<h3 id="重构">重构</h3>
+
+<p>维持软件的延展性涉及到软件工程的许多方面，例如：</p>
+
+<ul>
+<li>开发者的能力</li>
+<li>总体上“好”的代码，对问题妥善的划分，等等</li>
+<li>沟通技巧</li>
+<li>架构</li>
+<li>观察力</li>
+<li>部署能力</li>
+<li>自动化的测试</li>
+<li>反馈循环</li>
+</ul>
+
+<p>我在这里关注于重构。我们常常会在“我们需要重构它”中听到这个词，
+这是一个软件开发者在他开发的第一天没有半点犹豫的情况下说出来的。</p>
+
+<p>这个词是从何而来？重构和写代码又有什么区别？</p>
+
+<p>我知道我自己和许多其他人曾经会认为我们当时正在做的是重构，但事实上并不是。</p>
+
+<p><a href="https://martinfowler.com/bliki/RefactoringMalapropism.html">Martin Fowler描述了人们是如何误用这个词的:</a></p>
+
+<blockquote>
+<p>然而，“重构”这个词经常被用在一些不合适的地方。
+如果有人说一个系统在他们重构的时候已经崩溃了好几天了，
+你可以确认他们所做的其实并不是重构。</p>
+</blockquote>
+
+<p>那么什么是重构呢？</p>
+
+<h4 id="通分">通分</h4>
+
+<p>在学校学数学的时候，你可能学过通分。这里是一个非常简单的例子：</p>
+
+<p>要计算<code>1/2 + 1/4</code>，你会先将分母进行变为相同的值，把表达式变为<code>2/4 + 1/4</code>，
+然后就可以得到<code>3/4</code>。</p>
+
+<p>从这个例子里面我们可以学到重要的一课：在通分之后，我们<strong>没有改变表达式的含义</strong>。
+前后两个表达式的值都等于<code>3/4</code>，但是通分之后我们让它更容易计算。
+把<code>1/2</code>变为<code>2/4</code>让其更适合我们的“领域”。</p>
+
+<p>当你进行重构代码时，你是在寻找让你的代码更容易理解，
+更加适合你当前对这个系统功能的理解的方法。关键点在于，你不应该改变系统的行为。</p>
+
+<h5 id="go语言的一个例子">Go语言的一个例子</h5>
+
+<p>下面是一个用特定语言<code>language</code>对<code>name</code>问好的函数。</p>
+
+<pre><code>func Hello(name, language string) string {
+  if language == &quot;es&quot; {
+     return &quot;Hola, &quot; + name
+  }
+
+  if language == &quot;fr&quot; {
+     return &quot;Bonjour, &quot; + name
+  }
+
+  // imagine dozens more languages
+
+  return &quot;Hello, &quot; + name
+}
+</code></pre>
+
+<p>有那么多的<code>if</code>语句感觉上不太好，并且在连接语言相关的问候语和<code>,</code>、<code>name</code>时存在重复。
+所以我会重构这段代码。</p>
+
+<pre><code>func Hello(name, language string) string {
+    return fmt.Sprintf(
+        &quot;%s, %s&quot;,
+        greeting(language),
+        name,
+    )
+}
+
+var greetings = map[string]string {
+  es: &quot;Hola&quot;,
+  fr: &quot;Bonjour&quot;,
+  //etc..
+}
+
+func greeting(language string) string {
+  greeting, exists := greetings[language]
+
+  if exists {
+     return greeting
+  }
+
+  return &quot;Hello&quot;
+}
+</code></pre>
+
+<p>对这段代码重构的内容并不重要，重要的是我没有改变行为。</p>
+
+<p>重构时你可以做任何你想做的，添加<code>interface</code>，新的类型，函数，方法等。
+唯一的规则是不改变程序的行为。</p>
+
+<h4 id="重构代码时一定不能改变程序的行为">重构代码时一定不能改变程序的行为</h4>
+
+<p>这一点非常重要。如果你在重构的同时改变程序的行为，你在同时做两件事情。
+作为软件工程师，我们学会把系统分解为不同的文件/包/函数等，
+因为我们知道一口吃不了一个大胖子。</p>
+
+<p>我们不想一下思考很多事情，因为那样会导致我们犯错。
+我已经见证过很多因为开发者咬的比他们能嚼的多而导致重构失败的经历。</p>
+
+<p>当我在数学课上用纸和笔进行通分的时候，我会在脑中验算确保我没有改变表达式的值。
+对于代码，在重构的时候我们又该如何知道我们没有改变程序的行为呢？
+尤其是对一个复杂的系统重构的时候。</p>
+
+<p>那些选择不写测试的人通常会依赖手动进行测试。
+除了小项目，这种做法对时间是极大的浪费，长期来看也缺乏适应性。</p>
+
+<p><strong>为了安全地进行重构，你需要单元测试</strong>，因为它们会提供</p>
+
+<ul>
+<li>自信：你可以对代码随意进行改变而不用担心程序的行为会发生改变</li>
+<li>文档：可以供后人参考这个系统应有的行为是什么样的</li>
+<li>更快、更可靠的反馈，相比于手动测试来说</li>
+</ul>
+
+<h5 id="go语言的一个例子-1">Go语言的一个例子</h5>
+
+<p>对<code>Hello</code>函数的单元测试可以像下面这样：</p>
+
+<pre><code>func TestHello(t *testing.T) {
+  got := Hello(“Chris”, es)
+  want := &quot;Hola, Chris&quot;
+
+  if got != want {
+     t.Errorf(&quot;got %q want %q&quot;, got, want)
+  }
+}
+</code></pre>
+
+<p>在命令行下，我只要运行<code>go test</code>就能得到及时的反馈，
+知道我的重构是否改变了程序的行为。
+实际上，最好能学一下你所用编辑器/IDE自动运行测试的快捷键。</p>
+
+<p>你期望能够达到这么一个状态，在这个状态下，你会进行</p>
+
+<ul>
+<li>小的重构</li>
+<li>运行测试</li>
+<li>重复</li>
+</ul>
+
+<p>所有这些步骤都在一个紧凑的反馈循环中，这样你就不会掉进坑里犯错了。</p>
+
+<p>让一个项目的所有关键行为都被单元测试覆盖，
+并且能够在1秒以内得到反馈对于大量的重构来说是一个强有力的安全网。
+这能够帮助我们管理Lehman所说的驱动复杂性增长的驱动力。</p>
+
+<h3 id="如果单元测试这么好-为什么会有对它们的抵制呢">如果单元测试这么好，为什么会有对它们的抵制呢？</h3>
+
+<p>一方面，你会看到像我这样鼓吹单元测试对于系统的长期健康发展至关重要的人，
+因为它们可以让你更加自信地进行重构。
+另一方面，你也会看到有人描述单元测试妨碍了重构的经历。</p>
+
+<p>问问自己，重构时你不得不改变测试的频率有多高？这些年来，
+我从事过许多具有非常高的测试覆盖率的项目，但是工程师却不情愿去进行重构，
+因为他们察觉到改变测试要付出相当多的努力。</p>
+
+<p>这又与我们的承诺相悖。</p>
+
+<h4 id="为什么会这样">为什么会这样？</h4>
+
+<p>想像一下，你被要求去开发一个正方形，
+我们认为完成这件事的最好的做法是把两个三角形拼在一起。</p>
+
+<p><center>
+<img src="https://i.imgur.com/ela7SVf.jpg" alt="" />
+<div style="color: #9DAAB6;">两个直角三角形组成一个正方形</div>
+</center></p>
+
+<p>针对正方形，我们写了单元测试来确保它的两条边相等，
+然后我们又针对三角形写了一些测试。我们想让三角形被正确地渲染，
+所以我们断言其三个角的和为180度，或许还要检查有两个三角形，等等。
+测试覆盖率很重要，再者写这些测试相当简单，为什么不写呢？</p>
+
+<p>几个星期之后，持续变化定律冲击了我们的系统，一位新开发者作出了一些改变。
+她现在认为正方形最好由两个长方形组成而不是两个三角形。</p>
+
+<p><center>
+<img src="https://i.imgur.com/1G6rYqD.jpg" alt="" />
+<div style="color: #9DAAB6;">两个长方形组成一个正方形</div>
+</center></p>
+
+<p>她尝试进行重构，但是得到了一堆测试失败的消息。
+在这里她有破坏重要的行为吗？现在她必须去挖掘对于三角形的测试，
+并去理解到底发生了什么。</p>
+
+<p>正方形由三角形组成并不重要，但是<strong>我们的测试错误地高估了实现细节的重要性</strong>。</p>
+
+<h3 id="着重测试行为而不是实现细节">着重测试行为而不是实现细节</h3>
+
+<p>我所听到的对于单元测试的抱怨常常来源于在错误的抽象层次上进行了测试。
+他们测试的是实现细节，过多地监视了代码之间的协作，并进行了过多的mocking。</p>
+
+<p>我相信这来源于对单元测试错误的理解，或者是过度追求虚荣的数据（测试覆盖率）。</p>
+
+<p>如果说只测试行为，难道我们不应该只写系统/黑盒测试吗？
+这些测试在验证关键的用户需求上有重要的价值，但是写这些测试一般需要花费大量时间，
+而且运行起来也比较慢。因此这些测试对于重构没有太多帮助，因为反馈循环太慢。
+除此之外，相较于单元测试，黑盒测试一般不会对找到问题的根源有太大帮助。</p>
+
+<p>那么什么才是正确的抽象层次呢？</p>
+
+<h3 id="编写有效的单元测试是个设计问题">编写有效的单元测试是个设计问题</h3>
+
+<p>让我们先把测试放到一边。人们通常会希望你的系统中包含一些独立的、解耦的“单元”，
+这些单元是围绕着你所在领域的关键概念构成的。</p>
+
+<p>我喜欢把这些单元想像成简单的乐高积木，
+它们有清晰的API让我可以和其他积木组合从而构建出更大的系统。
+在这些API下面可能会有成十种不同的东西（类型、函数等）在进行合作，
+从而让整个系统按照它被期望的方式运行。</p>
+
+<p>例如，你在用Go语言写一个银行系统的时候，可能会有一个称为&rdquo;account&rdquo;的包。
+它会展现一个不会泄露实现细节的API，并且这个API很容易和其他部分进行集成。</p>
+
+<p>如果你的单元符合这些性质，你就可以针对它们的公共API写单元测试了。
+按照定义，这些测试只会对有用的行为进行测试。在这些单元下面，
+我可以自由地对其实现进行重构，而且对大部分代码进行测试也不会成为一个障碍。</p>
+
+<h4 id="这是单元测试吗">这是单元测试吗？</h4>
+
+<p><strong>是</strong>。单元测试中的“单元”指的就是我所描述的“单元”。
+它从来就不是仅仅只针对一个类/函数等的测试。</p>
+
+<h3 id="把这些概念合在一起">把这些概念合在一起</h3>
+
+<p>我们已经讨论了</p>
+
+<ul>
+<li>重构</li>
+<li>单元测试</li>
+<li>单元设计</li>
+</ul>
+
+<p>我们会开始看到软件设计的这些方面彼此在进行加固。</p>
+
+<h4 id="重构-1">重构</h4>
+
+<ul>
+<li>给出我们单元测试是否良好的信号。如果我们不得不手动检查，
+我们就需要更多的测试。如果测试错误地失败了，那么我们的测试处在错误的抽象层次上。
+（或者根本没有价值，应该被删掉。）</li>
+<li>帮助我们处理各个单元内和各个单元之间复杂性。</li>
+</ul>
+
+<h4 id="单元测试">单元测试</h4>
+
+<ul>
+<li>给了重构一个安全网。</li>
+<li>验证各个单元并明确它们的行为。</li>
+</ul>
+
+<h4 id="设计良好的-单元">（设计良好的）单元</h4>
+
+<ul>
+<li>易于写出有意义的单元测试。</li>
+<li>易于重构。</li>
+</ul>
+
+<p>有没有一个流程可以帮助我们达到能够稳定地重构代码来管理复杂性并且能够保持系统的延展性的状态点呢？</p>
+
+<h3 id="为什么要测试驱动开发-tdd">为什么要测试驱动开发（TDD)</h3>
+
+<p>有些人在接受了Lehman关于软件必须进行改变的言论之后，
+会尝试创造“完美的”可扩展的系统并过多地考虑详尽的设计，
+这样在一开始就浪费了大量的时间，最终走错了路什么也没做成。</p>
+
+<p>这是软件的不堪入目的旧时代所出现的现象。一个需求分析团队会花费6个月来写需求文档，
+一个架构团队会再花费6个月想出一个设计方案，过了几年，整个项目失败了。</p>
+
+<p>虽说是旧时代的现象，但它现在仍然还在发生。</p>
+
+<p>敏捷开发教会了我们要迭代地进行开发，开始时很小，但是软件在不断进化，
+这样我们就能获得快速的反馈，了解我们对软件的设计和它与真实用户的交互。
+TDD强制我们按照这种方式进行开发。</p>
+
+<p>TDD通过鼓励一种持续地、迭代地重构和交付的方法论强调了Lehman定律，
+和其他一些通过历史教训学到的东西。</p>
+
+<h4 id="小的步骤">小的步骤</h4>
+
+<ul>
+<li>针对少量的期望的行为编写测试</li>
+<li>检查测试失败时会有清晰的错误消息（红）</li>
+<li>编写最少量的代码让测试通过（绿）</li>
+<li>重构</li>
+<li>重复</li>
+</ul>
+
+<p>一旦熟练了起来，这种工作方式会变得自然而迅速。</p>
+
+<p>你会期望这个反馈循环不会花费很长的时间，在掉进坑里的时候，
+也不希望很难去把系统的状态变成“绿色”。</p>
+
+<p>你会一直去自然地编写小的且有用的功能，这些功能由你的测试循环支撑。</p>
+
+<h3 id="总结">总结</h3>
+
+<ul>
+<li>软件的优势在于我们可以改变它。<em>大部分</em>
+软件需要随时间以不可预知的方式进行改变，但是不要尝试去过度设计，
+因为未来难以预测。</li>
+<li>反之，我们要让软件保持延展性。为了对软件进行改变，
+我们需要在它演变的过程中重构它，否则，它会变得一团糟。</li>
+<li>好的测试可以帮助你更快、更轻松地重构。</li>
+<li>编写良好的单元测试是个设计问题，所以需要考虑对你的代码结构进行划分，
+这样就会产生出有意义的单元，它们像乐高积木一样可以集成在一块。</li>
+<li>TDD能够帮助并强制你迭代式地设计良好的代码，通过测试支撑，
+对未来的工作产生帮助。</li>
+</ul>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/zh/posts/cheat_with_mock/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">使用Mock对象</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+
+
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+
+
+    
+
+
+
+    </body>
+</html>

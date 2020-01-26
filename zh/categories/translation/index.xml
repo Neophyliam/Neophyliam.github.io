@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>testing on Neo的博客</title>
-    <link>https://neothenil.github.io/zh/categories/testing/</link>
-    <description>Recent content in testing on Neo的博客</description>
+    <title>translation on Neo的博客</title>
+    <link>https://neothenil.github.io/zh/categories/translation/</link>
+    <description>Recent content in translation on Neo的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 26 Jan 2020 23:35:00 +0800</lastBuildDate>
     
-	<atom:link href="https://neothenil.github.io/zh/categories/testing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://neothenil.github.io/zh/categories/translation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,19 +27,6 @@
 为什么一个软件系统又会失败呢？难道就不能一直改动直到它能正常工作吗？这不是我们所承诺的吗！
 许多人选择Go语言来构建系统，因为它做出了一系列我们希望能使它更加经得起历史考验的决定。
  相比于我之前使用Scala的经历（我在这里 描述了它是如何有足够长的绳子来吊死你自己），Go只有25个关键字，许多系统都可以使用标准库， 再加上一些其他的小库来构建。使用Go，你能够希望自己写的代码过了6个月之后仍然能顺畅地阅读。 相比于其他语言，具有一流的测试、性能分析、静态检查和构建工具。 标准库非常优秀。 对于紧凑的反馈循环来说具有非常快的编译速度。 Go语言向后兼容的承诺。即使Go在将来可能会加入范型及其他一些特性， 但是设计者们承诺即使是5年前写的Go代码仍将正确编译。 我之前经常要花费好几周的时间来把一个项目从Scala 2.</description>
-    </item>
-    
-    <item>
-      <title>使用Mock对象</title>
-      <link>https://neothenil.github.io/zh/posts/cheat_with_mock/</link>
-      <pubDate>Sat, 19 Oct 2019 17:38:37 +0800</pubDate>
-      
-      <guid>https://neothenil.github.io/zh/posts/cheat_with_mock/</guid>
-      <description>这篇文章是对Uncle Bob的两篇关于mock的文章的总结。 一篇被命名为&amp;rdquo;The Little Mocker&amp;rdquo;，展示了各种不同的Mock对象。另一篇文章 告诉我们应该在什么情况下使用 Mock对象。尽管在The Little Mocker中，Uncle Bob指出了我们通常所说的&amp;rdquo;mock&amp;rdquo;指的其实是Test Double，在这篇文章中我们还是使用通常所说的&amp;rdquo;mock&amp;rdquo;的含义。
-什么是Mock对象？ Mock对象是一些用来模仿真实对象行为的模拟对象，它们通常在单元测试中用来测试一些 依赖于其他对象的对象。使用Mock对象，我们可以测试代码中的某一个特定逻辑，而不会 产生其他一些副作用，例如读取文件或连接服务器。在我看来，Mock对象的行为就像是在 欺骗被测试的代码一样，但是这里的欺骗是出于好意的，比如想要消除单元测试中一些 操作的长延迟或不确定的因素。
-Mock对象的不同类型 1. Dummy 为了方便起见，这里直接使用了原文中的代码片段。假如有个System类：
-public class System { public System(Authorizer authorizer) { this.authorizer = authorizer; } public int loginCount() { // returns number of logged in users. } }  其中Authorizer被定义为一个接口：
-interface Authorizer { public Boolean authorize(String username, String password); }  在有些情况下，系统本身就会有几种不同的Authorizer，这自然会让Authorizer被 定义为一个接口。但是也有一些情况下，定义接口就是专门为了使用Mock对象进行测试。</description>
     </item>
     
   </channel>

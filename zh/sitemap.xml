@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/categories/</loc>
-    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/</loc>
-    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -36,7 +36,7 @@
   
   <url>
     <loc>https://neothenil.github.io/zh/posts/</loc>
-    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -48,6 +48,33 @@
                 hreflang="zh"
                 href="https://neothenil.github.io/zh/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/posts/why_unit_tests/</loc>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/categories/testing/</loc>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://neothenil.github.io/categories/testing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://neothenil.github.io/zh/categories/testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://neothenil.github.io/zh/categories/translation/</loc>
+    <lastmod>2020-01-26T23:35:00+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -63,22 +90,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://neothenil.github.io/zh/categories/dev/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://neothenil.github.io/zh/categories/testing/</loc>
-    <lastmod>2019-10-19T17:38:37+08:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://neothenil.github.io/categories/testing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://neothenil.github.io/zh/categories/testing/"
                 />
   </url>
   
