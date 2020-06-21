@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Neo的博客</title>
+    <link>https://neothenil.github.io/zh/categories/python/</link>
+    <description>Recent content in python on Neo的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 20 Jun 2020 21:25:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://neothenil.github.io/zh/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dashboard - 我的第一个Flask应用</title>
+      <link>https://neothenil.github.io/zh/posts/dashboard/</link>
+      <pubDate>Sat, 20 Jun 2020 21:25:56 +0800</pubDate>
+      
+      <guid>https://neothenil.github.io/zh/posts/dashboard/</guid>
+      <description>简介 Dashboard的主要功能是提交和查看LOCUST/SPARK的计算任务。提交的计算任务在运行完毕后， 不论成功还是失败，都可以下载最终运行的结果。提交之后，如果还没有运行结束，则可以取消任务。 这个应用要求用户注册了之后才可以使用，每个用户只能看到自己提交的任务， 无法查看或操作其他人的任务。下图是一个示例的任务状态页面。
+ 任务状态页面 
+提交任务的页面如下图所示。在这个页面中，用户需选择任务类型，即LOCUST或SPARK任务； 需要给任务取个名字，便于分辨不同的任务；最复杂的部分就是用户还需提供任务的数据文件， 这是一个按照一定规则放置文件的zip压缩包。对于LOCUST任务来说，提交的zip压缩包中应是一系列的目录， 每个目录都对应一个组件名称，每个目录下都有一个xml文件作为LOCUST的输入文件， 通常该输入文件后缀前的部分也按照组件名称来命名。对于SPARK任务来说， 提交的zip压缩包中可以包含需要使用的相关文件和目录，比如LTOS库， 但必须要有一些含有spark.inp文件的目录，SPARK会在这些目录下按照字母表的顺序依次执行。 当然，在这里执行的其实都是mock出来的LOCUST/SPARK， 在项目源码中放置的是用python写的模拟LOCUST/SPARK功能的脚本。
+ 任务提交页面 
+这些说明在Dashboard的帮助页面中也有提及，该页面还提供了一些示例的数据文件， 对于想试用该应用的人来说，可以直接下载这些示例的数据文件， 然后再到任务提交页面去提交相应的任务即可。
+ 帮助页面 
+实现 Dashboard主要是使用Flask和Celery来实现的。Flask是python的一个web应用框架， 对于功能简单的应用，使用Flask开发是非常方便快捷的。此外，Flask还有一些实用的扩展， 可以进一步加速应用的开发，并对应用的安全方面提供保障。 Celery是使用python实现的一个分布式异步任务队列，通过设置broker， Flask应用可以异步地发起任务请求，通过设置backend，Celery任务的状态能够得以保存， 从而在Flask应用中也可以查看任务的状态。在Dashboard中，使用rabbitmq作为broker， 使用redis作为backend存储任务的状态。
+Dashboard中使用的Flask扩展主要有flask_sqlalchemy, flask_login和flask_wtf。 flask_sqlalchemy简化了数据库的操作，可以通过ORM直接在应用中使用python对象来操作数据库。 flask_login简化了用户认证、登录方面的操作。flask_wtf将表单集成在了flask应用中， 在表单的解析、验证和CSRF保护上提供了便利。
+Dashboard应用中定义了以下端点及对应的url， 用户认证相关的功能和与任务相关的操作分别在不同的蓝本中进行实现。
+Endpoint Methods Rule ------------- --------- ------------------------ auth.login GET, POST /auth/login auth.</description>
+    </item>
+    
+  </channel>
+</rss>

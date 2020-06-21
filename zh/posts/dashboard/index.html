@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.56.0" />
+
+    
+    
+    
+
+<title>Dashboard - 我的第一个Flask应用 • Neo的博客</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dashboard - 我的第一个Flask应用"/>
+<meta name="twitter:description" content="Dashboard是我从头到尾独立开发的第一个Flask应用, 这篇文章简单介绍一下这个应用的功能及开发过程中遇到的一些问题。"/>
+
+<meta property="og:title" content="Dashboard - 我的第一个Flask应用" />
+<meta property="og:description" content="Dashboard是我从头到尾独立开发的第一个Flask应用, 这篇文章简单介绍一下这个应用的功能及开发过程中遇到的一些问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://neothenil.github.io/zh/posts/dashboard/" />
+<meta property="article:published_time" content="2020-06-20T21:25:56+08:00" />
+<meta property="article:modified_time" content="2020-06-20T21:25:56+08:00" /><meta property="og:site_name" content="Neo的博客" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.72a36c3d3e6f5047769f1181a80316f27447ba6a662f06304a5dc2fc30989110.css" integrity="sha256-cqNsPT5vUEd2nxGBqAMW8nRHumpmLwYwSl3C/DCYkRA=">
+
+
+<link rel="stylesheet" href="/scss/print.2ff7ec5bd74f55e3646af8c189df6d6e3ff3e624dc1f695309df7ec00cd55527.css" integrity="sha256-L/fsW9dPVeNkavjBid9tbj/z5iTcH2lTCd9&#43;wAzVVSc=" media="print">
+
+
+
+
+<link rel="stylesheet" href="/scss/hugo-toc.0873834b0f2e9fdc9e1d0301e8ebce21fc10383882a41e9373f29b90e85a9987.css" integrity="sha256-CHODSw8un9yeHQMB6OvOIfwQODiCpB6Tc/KbkOhamYc=">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="/zh">Neo的博客</a>
+      </span>
+      
+      
+      <p class="site__description">
+         &#34;I hope the field of computer science never loses its sense of fun.&#34; --Alan Perlis
+ 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Neo的博客</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/zh/posts/">
+						<span>文章</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/zh/about/">
+						<span>关于</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	
+	
+	<a href="https://github.com/neothenil" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="mailto:727549953@qq.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+        <ul style="padding: 0; text-align: center">
+    <small>| </small>
+    
+    <li style="display: inline-block"><a href="/"><small>English</small></a><small> |</small></li>
+    
+    <li style="display: inline-block"><a href="/zh/"><small>中文</small></a><small> |</small></li>
+    
+</ul>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 neothenil
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY_SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Dashboard - 我的第一个Flask应用</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jun 20, 2020
+    
+    
+    
+      
+      
+          in
+          
+          
+              <a class="badge badge-category" href="/zh/categories/flask">FLASK</a>
+              •
+          
+              <a class="badge badge-category" href="/zh/categories/python">PYTHON</a>
+              •
+          
+              <a class="badge badge-category" href="/zh/categories/web">WEB</a>
+              
+          
+      
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 1 min read
+</div>
+
+
+  </header>
+  
+  
+  
+    <div class="toc-wrapper">
+      <input type="checkbox" id="tocToggle">
+      <label for="tocToggle">Table of Content</label>
+      
+          <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#实现">实现</a></li>
+<li><a href="#存在的问题">存在的问题</a></li>
+<li><a href="#结论">结论</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+      
+    </div>
+  
+  
+  <div class="post">
+    
+
+<h3 id="简介">简介</h3>
+
+<p>Dashboard的主要功能是提交和查看LOCUST/SPARK的计算任务。提交的计算任务在运行完毕后，
+不论成功还是失败，都可以下载最终运行的结果。提交之后，如果还没有运行结束，则可以取消任务。
+这个应用要求用户注册了之后才可以使用，每个用户只能看到自己提交的任务，
+无法查看或操作其他人的任务。下图是一个示例的任务状态页面。</p>
+
+<p><center>
+<img src="/img/task_status.png" alt="" />
+<div style="color: #9DAAB6;">任务状态页面</div>
+</center></p>
+
+<p>提交任务的页面如下图所示。在这个页面中，用户需选择任务类型，即LOCUST或SPARK任务；
+需要给任务取个名字，便于分辨不同的任务；最复杂的部分就是用户还需提供任务的数据文件，
+这是一个按照一定规则放置文件的zip压缩包。对于LOCUST任务来说，提交的zip压缩包中应是一系列的目录，
+每个目录都对应一个组件名称，每个目录下都有一个xml文件作为LOCUST的输入文件，
+通常该输入文件后缀前的部分也按照组件名称来命名。对于SPARK任务来说，
+提交的zip压缩包中可以包含需要使用的相关文件和目录，比如LTOS库，
+但必须要有一些含有spark.inp文件的目录，SPARK会在这些目录下按照字母表的顺序依次执行。
+当然，在这里执行的其实都是mock出来的LOCUST/SPARK，
+在项目源码中放置的是用python写的模拟LOCUST/SPARK功能的脚本。</p>
+
+<p><center>
+<img src="/img/task_submit.png" alt="" />
+<div style="color: #9DAAB6;">任务提交页面</div>
+</center></p>
+
+<p>这些说明在Dashboard的帮助页面中也有提及，该页面还提供了一些示例的数据文件，
+对于想试用该应用的人来说，可以直接下载这些示例的数据文件，
+然后再到任务提交页面去提交相应的任务即可。</p>
+
+<p><center>
+<img src="/img/dashboard_help.png" alt="" />
+<div style="color: #9DAAB6;">帮助页面</div>
+</center></p>
+
+<h3 id="实现">实现</h3>
+
+<p>Dashboard主要是使用Flask和Celery来实现的。Flask是python的一个web应用框架，
+对于功能简单的应用，使用Flask开发是非常方便快捷的。此外，Flask还有一些实用的扩展，
+可以进一步加速应用的开发，并对应用的安全方面提供保障。
+Celery是使用python实现的一个分布式异步任务队列，通过设置broker，
+Flask应用可以异步地发起任务请求，通过设置backend，Celery任务的状态能够得以保存，
+从而在Flask应用中也可以查看任务的状态。在Dashboard中，使用rabbitmq作为broker，
+使用redis作为backend存储任务的状态。</p>
+
+<p>Dashboard中使用的Flask扩展主要有flask_sqlalchemy, flask_login和flask_wtf。
+flask_sqlalchemy简化了数据库的操作，可以通过ORM直接在应用中使用python对象来操作数据库。
+flask_login简化了用户认证、登录方面的操作。flask_wtf将表单集成在了flask应用中，
+在表单的解析、验证和CSRF保护上提供了便利。</p>
+
+<p>Dashboard应用中定义了以下端点及对应的url，
+用户认证相关的功能和与任务相关的操作分别在不同的蓝本中进行实现。</p>
+
+<pre><code>Endpoint       Methods    Rule
+-------------  ---------  ------------------------
+auth.login     GET, POST  /auth/login
+auth.logout    GET        /auth/logout
+auth.register  GET, POST  /auth/register
+demo           GET        /help/demo
+help           GET        /help
+index          GET        /
+static         GET        /static/&lt;path:filename&gt;
+task.cancel    POST       /task/&lt;task_id&gt;/cancel
+task.delete    POST       /task/&lt;task_id&gt;/delete
+task.download  GET        /task/&lt;task_id&gt;/download
+task.submit    GET, POST  /task/submit
+</code></pre>
+
+<p>其实，在这个应用开发的过程中难度最大的地方在于celery的使用。
+提交的LOCUST任务中会包含多个组件，对这些组件可以并发地调用LOCUST执行，这就是说，
+LOCUST任务本身就包含了并发的操作，在这种情况下，如何跟踪任务的执行状态成了一个较为棘手的问题。
+对于这个问题，我采用的方法是将generator当作协程来使用。并发调用LOCUST进行计算的代码如下所示，
+如果不需要跟踪任务的状态，我会在这个函数的最后返回<code>info</code>，但在这里，
+每当一个对LOCUST的调用执行完毕后，都会<code>yield info</code>一次。
+这意味着每当一个对LOCUST的调用执行完毕后，程序流程的控制权便暂时返回到了调用
+<code>async_execute_locust</code>的函数中，在调用它的函数中就可以更新任务的状态，
+然后再把程序流程的控制权交到<code>async_execute_locust</code>中，<code>async_execute_locust</code>
+会接着上次的运行状态继续运行。其实把这段代码直接内嵌到调用它的代码中也可以实现这个功能，
+但是这样做会让代码看起来非常冗杂。</p>
+
+<pre><code class="language-python">def async_execute_locust(locust_bin, workspaces, nworker):
+    total = len(workspaces)
+    worker_num = min(total, nworker, os.cpu_count())
+    if worker_num &lt;= 0:
+        worker_num = 1
+    info = {&quot;total&quot;: total, &quot;success&quot;: 0, &quot;failed&quot;: []}
+    with TPE(max_workers=worker_num) as executor:
+        futures = {
+            executor.submit(execute_locust, locust_bin, workspace): workspace
+            for workspace in workspaces
+        }
+        for future in as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                info[&quot;failed&quot;].append(futures[future])
+            else:
+                info[&quot;success&quot;] += 1
+            yield info
+</code></pre>
+
+<p>相比而言，跟踪SPARK任务的状态要简单许多，因为SPARK是一个接着一个按照顺序调用的。</p>
+
+<p>另外，在开发Dashboard的过程中，发现调用celery取消任务的API只会把任务本身的进程杀掉，
+任务的子进程还会继续运行。在网上查找类似的问题，发现celery本身是不适合执行调用子进程的任务的，
+目前也没有官方的解决方案。对于Dashboard这个应用来说，如果真要使用的话，
+也只会在一台单机上运行，celery分布式的功能应该是用不到的。针对这个问题采用的方法是，
+在提交任务的时候，其返回的状态中保存了执行当前这个任务的进程id，并把这个进程id保存在数据库中。
+当用户取消任务的时候，先记录下执行这个任务的进程有哪些子进程，
+然后使用celery的API结束掉当前任务，防止新的子进程的产生，最后再把那些子进程结束掉。
+这个过程大致如以下代码所示。</p>
+
+<pre><code class="language-python">task = Task.query.get_or_404(task_id)
+task_result = task_obj.AsyncResult(task.id)
+proc = psutil.Process(task.pid)
+children = proc.children(recursive=True)
+task_result.revoke(terminate=True)
+for child in children:
+    child.terminate()
+</code></pre>
+
+<h3 id="存在的问题">存在的问题</h3>
+
+<p>其实，上面的实现即使是在单机上运行也存在问题，查看任务状态的时候可能显示着任务还在运行，
+但是在调用<code>revoke</code>的时候，刚刚显示正在运行的任务可能已经运行结束了，
+这个时候<code>revoke</code>结束掉的可能就是别的任务了。这里存在着竞态条件。
+只不过LOCUST/SPARK的运行时间一般很长，这种情况出现的可能性不大而已。</p>
+
+<p>另外，由于celery的任务无法在<code>revoke</code>的时候进行其他操作，运行的中间结果无法保存起来，
+导致中途取消的任务是无法下载它的中间结果的。</p>
+
+<h3 id="结论">结论</h3>
+
+<p>Dashboard作为我开发的第一个Flask应用，基本实现了预期的功能，但是它并不完美。
+尽管如此，在开发过程中也熟悉了Flask的API，了解了celery的使用，如果没有这个尝试，
+我也不会发现celery不适合调用子进程的任务。</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/zh/posts/why_unit_tests/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">[译]为什么需要单元测试以及如何让其为你所用</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+
+
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+
+
+    
+
+
+
+    </body>
+</html>
